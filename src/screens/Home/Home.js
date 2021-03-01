@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.scss'
 import sofaImg from '../../assets/images/5-sofa-png-image-thumb.png';
+import { useDispatch } from 'react-redux'
+import { readData } from '../../actions/Data'
 
 const Home = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(readData());
+    }, [dispatch]);
     return (
         <main>
             <section id="slider">

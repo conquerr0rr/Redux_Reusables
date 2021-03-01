@@ -1,8 +1,8 @@
 {
-    "name": "backend",
+        "name": "backend",
     "version": "0.0.0",
     "private": true,
-    "scripts": {
+     "scripts": {
         "start": "node ./bin/www mongodb"
     },
     "dependencies": {

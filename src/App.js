@@ -5,15 +5,14 @@ import Layout from '../src/components/Layout/Layout'
 import Admin from "../src/screens/Admin/Admin";
 function App() {
   return (
-
-   
-      <Switch>
-         <Layout>
-        <Route path="/" component={Home} />
-        <Route path="/admin" component={Admin} />
-        </Layout>
-      </Switch>
-
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/admin" component={Admin} />
+        </Switch>
+      </Layout>
+    </Router>
   );
 }
 

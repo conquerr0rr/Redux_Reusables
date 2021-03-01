@@ -2,7 +2,6 @@ import React from 'react'
 import './Layout.scss'
 
 // ICONS
-import briefcaseIcon from '../../assets/icons/briefcase-solid.svg'
 import contactIcon from '../../assets/icons/contact_support-24px.svg'
 import navigationIcon from '../../assets/icons/navigation-24px.svg'
 import userIcon from '../../assets/icons/user-solid.svg'
