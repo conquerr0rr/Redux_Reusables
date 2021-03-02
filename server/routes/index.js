@@ -71,7 +71,8 @@ router.patch('/update/:id', async (req, res) => {
 // DELETE ROUTE
 router.delete('/delete/:id', async (req, res) => {
     try {
-        let DeletingData = await Notes.findOneAndDelete();
+        let id = req.params.id;
+        let DeletingData = await Notes.findByIdAndDelete(id);
         console.log(DeletingData);
         res.json(DeletingData);
     } catch (error) {

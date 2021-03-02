@@ -11,10 +11,6 @@ const Admin = () => {
     number: ''
   });
   const dispatch = useDispatch();
-  const deleteElement = (id) =>{
-    console.log(id)
-    dispatch(deleteData(id))
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +45,7 @@ const Admin = () => {
                 <button className="update-button" >Update</button>
               </td>
               <td>
-                <button className="delete-button" onClick={deleteElement}>Delete</button>
+                <button className="delete-button" onClick={()=>{dispatch(deleteData(data._id))}}>Delete</button>
               </td>
             </tr>
           ))
