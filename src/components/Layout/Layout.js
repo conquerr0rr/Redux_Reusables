@@ -1,5 +1,6 @@
 import React from 'react'
 import './Layout.scss'
+import { Link } from 'react-router-dom';
 
 // ICONS
 import contactIcon from '../../assets/icons/contact_support-24px.svg'
@@ -13,14 +14,15 @@ const Layout = ({ children }) => {
         <>
             <header>
                 <div className="headertop">
-
-                    <div className="logo">
-                        <span>Maynooth</span>
-                    </div>
+                    <Link to="/">
+                        <div className="logo">
+                            <span>Maynooth</span>
+                        </div>
+                    </Link>
 
                     <div className="searchbar">
                         <button>
-                            <img src={searchIcon} />
+                            <img alt="Search" src={searchIcon} />
                         </button>
                         <input type="text" placeholder="Search for Products and Inspiration" />
 
@@ -29,21 +31,23 @@ const Layout = ({ children }) => {
                     <div className="navitems">
                         <ul>
                             <li>
-                                <img src={navigationIcon} />
+                                <img alt="Navigation" src={navigationIcon} />
                                 <p>Showroom</p>
                             </li>
                             <li>
-                                <img src={contactIcon} />
+                                <img alt="contact" src={contactIcon} />
                                 <p>Contact</p>
                             </li>
                             <li>
-                                <img src={userIcon} />
+                                <img alt="user" src={userIcon} />
                                 <p>Account</p>
                             </li>
-                            <li>
-                                <img src={basketIcon} />
-                                <p>Basket</p>
-                            </li>
+                            <Link to="/cart">
+                                <li>
+                                    <img alt="Cart" src={basketIcon} />
+                                    <p>Cart</p>
+                                </li>
+                            </Link>
                         </ul>
                     </div>
                 </div>
@@ -62,28 +66,28 @@ const Layout = ({ children }) => {
                     <div className="ft-main-item">
                         <h2 className="ft-title">About</h2>
                         <ul>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">Customers</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li>Services</li>
+                            <li>Portfolio</li>
+                            <li>Pricing</li>
+                            <li>Customers</li>
+                            <li>Careers</li>
                         </ul>
                     </div>
                     <div className="ft-main-item">
                         <h2 className="ft-title">Resources</h2>
                         <ul>
-                            <li><a href="#">Docs</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">eBooks</a></li>
-                            <li><a href="#">Webinars</a></li>
+                            <li>Docs</li>
+                            <li>Blog</li>
+                            <li>eBooks</li>
+                            <li>Webinars</li>
                         </ul>
                     </div>
                     <div className="ft-main-item">
                         <h2 className="ft-title">Contact</h2>
                         <ul>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Sales</a></li>
-                            <li><a href="#">Advertise</a></li>
+                            <li>Help</li>
+                            <li>Sales</li>
+                            <li>Advertise</li>
                         </ul>
                     </div>
                     <div className="ft-main-item">
@@ -98,19 +102,19 @@ const Layout = ({ children }) => {
 
                 <section className="ft-social">
                     <ul className="ft-social-list">
-                        <li><a href="#"><i className="fab fa-facebook"></i></a></li>
-                        <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i className="fab fa-github"></i></a></li>
-                        <li><a href="#"><i className="fab fa-linkedin"></i></a></li>
-                        <li><a href="#"><i className="fab fa-youtube"></i></a></li>
+                        <li><i className="fab fa-facebook"></i></li>
+                        <li><i className="fab fa-twitter"></i></li>
+                        <li><i className="fab fa-instagram"></i></li>
+                        <li><i className="fab fa-github"></i></li>
+                        <li><i className="fab fa-linkedin"></i></li>
+                        <li><i className="fab fa-youtube" ></i></li>
                     </ul>
                 </section>
 
                 <section className="ft-legal">
                     <ul className="ft-legal-list">
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li>Terms &amp; Conditions</li>
+                        <li>Privacy Policy</li>
                         <li>&copy; 2019 Copyright Nowrap Inc.</li>
                     </ul>
                 </section>

@@ -1,6 +1,6 @@
 .headertop {
     display: inline-block;
-    background-color: #C4D1DA;
+    background-color: #D8E8F2;
     width: 100%;
 }
 
@@ -84,7 +84,7 @@ header ul li {
 
 .headerbottom {
     display: inline-block;
-    background-color: #bac6cf;
+    background-color: #c8dae6;
     width: 100%;
     /* height: 3vh; */
     display: flex;
@@ -93,14 +93,15 @@ header ul li {
 
 .headerbottom ul li {
     margin-left: 2rem;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 15px;
+    padding-bottom: 15px;
     cursor: pointer;
-    /* margin-right: 2rem; */
 }
 
 .headerbottom ul li:hover {
     color: rgb(0, 0, 0);
+    border-bottom: 1px solid black;
+    padding-bottom: 2px;
 }
 
 

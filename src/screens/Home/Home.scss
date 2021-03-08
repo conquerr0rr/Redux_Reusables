@@ -1,8 +1,8 @@
 #slider {
     height: 90vh;
     /* width: 100%; */
-    background-image: url("../../assets/images/mountains_fog_clouds_156107_2560x1440.jpg");
-    background-size: cover;
+    background-image: url("../../assets/images/image.png");
+    background-size: 100%;
 }
 
 .data {
@@ -77,6 +77,7 @@
     background-color: #D8E8F2;
     margin: 2% 0;
     width: 30%;
+    height: 200px;
     display: flex;
     justify-content: space-evenly;
     transition: 0.5s ease;
@@ -100,9 +101,12 @@
 }
 
 #explore .box img {
-    height: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-left: 3%;
-    width: 200px;
+    // width: 50%;
+    width: 50%;
+    // width: 200px;
 }
 
 #information {

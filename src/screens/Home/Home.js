@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import './Home.scss'
 import sofaImg from '../../assets/images/5-sofa-png-image-thumb.png';
-import { useDispatch } from 'react-redux'
-import { readData } from '../../actions/Data'
+import { useDispatch, useSelector } from 'react-redux'
+import { readData } from '../../actions/Data';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -10,6 +10,8 @@ const Home = () => {
     useEffect(() => {
         dispatch(readData());
     }, [dispatch]);
+
+    const items = useSelector((state) => state.Data);
     return (
         <main>
             <section id="slider">
@@ -28,30 +30,40 @@ const Home = () => {
                 </div>
 
                 <div className="explore-boxes">
-                    <div className="box">
+
+                    {/* <div className="box">
                         <span>Sofas & Armchairs</span>
-                        <img src={sofaImg} />
-                    </div>
+                        <img alt="sofa" src={sofaImg} />
+                    </div> */}
+                    {items.map((items)=>(
+                        <div className="box" key={items._id}>
+                            <span >{items.firstname} {items.lastname}</span>
+                            <img alt="sofa" src={sofaImg} />
+                        </div>
+                        ))
+                    }
+
                     <div className="box">
                         <span>Furniture</span>
-                        <img src={sofaImg} />
+                        <img alt="sofa" src={sofaImg} />
                     </div>
                     <div className="box">
                         <span>Lighting</span>
-                        <img src={sofaImg} />
+                        <img alt="sofa" src={sofaImg} />
                     </div>
                     <div className="box">
                         <span>Soft Furnishings</span>
-                        <img src={sofaImg} />
+                        <img alt="sofa" src={sofaImg} />
                     </div>
                     <div className="box">
                         <span>Kitchen</span>
-                        <img src={sofaImg} />
+                        <img alt="sofa" src={sofaImg} />
                     </div>
                     <div className="box">
                         <span>Home Accesories</span>
-                        <img src={sofaImg} />
+                        <img alt="sofa" src={sofaImg} />
                     </div>
+
                 </div>
             </section>
             <section id="information">
