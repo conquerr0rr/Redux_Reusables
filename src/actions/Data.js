@@ -1,4 +1,4 @@
-import types from './types'
+import { READ_DATA, CREATE_DATA, DELETE_DATA } from  '../constants/constant'
 import * as api from '../api/index'
 
 
@@ -10,7 +10,7 @@ export const readData = () => async (dispatch) => {
     try {
         const { data } = await api.readData();
         // AS SOON AS WE DISPATCH THE DATA FROM HERE, IT SETS THE TYPE OF CATEGORY IN WHICH THE DATA IS MANIPULATED
-        dispatch({ type: types.READ_DATA, payload: data });
+        dispatch({ type: READ_DATA, payload: data });
         // console.log(data[0].firstname);
     } catch (error) {
         console.log(error.message);
@@ -20,7 +20,7 @@ export const readData = () => async (dispatch) => {
 export const createData = (Form) => async (dispatch) => {
     try {
         const { data } = await api.createData(Form);
-        dispatch({ type: types.CREATE_DATA, payload: data });
+        dispatch({ type: CREATE_DATA, payload: data });
         console.log(Form)
     } catch (error) {
         console.log(error.message);
@@ -30,7 +30,7 @@ export const createData = (Form) => async (dispatch) => {
 export const deleteData = (id) => async (dispatch) => {
     try {
         await api.deleteData(id);
-        dispatch({ type: types.DELETE_DATA, payload: id });
+        dispatch({ type: DELETE_DATA, payload: id });
         console.log(id)
     } catch (error) {
         console.log(error.message);

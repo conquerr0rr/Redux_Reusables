@@ -1,13 +1,13 @@
-import types from '../actions/types'
+import { READ_DATA, CREATE_DATA, UPDATE_DATA, DELETE_DATA} from  '../constants/constant'
 const Data = (state = [], action) => {
     switch (action.type) {
-        case types.CREATE_DATA:
+        case CREATE_DATA:
             return [...state, action.payload];
-        case types.READ_DATA:
+        case READ_DATA:
             return action.payload;
-        case types.UPDATE_DATA:
+        case UPDATE_DATA:
             return state;
-        case types.DELETE_DATA:
+        case DELETE_DATA:
             return state.filter((data) => data._id !== action.payload);
 
         default:

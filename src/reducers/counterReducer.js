@@ -1,10 +1,10 @@
-import types from "../actions/types";
+import { DECREMENT, INCREMENT } from '../constants/constant'
 const counterReducer = (state = 0, action) => {
     switch (action.type) {
-        case types.INCREMENT: {
+        case INCREMENT: {
             return state + 1;
         }
-        case types.DECREMENT: {
+        case DECREMENT: {
             return state - 1;
         }
         default:

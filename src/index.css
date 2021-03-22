@@ -94,3 +94,6 @@ code {
   font-display: swap;
 }
 
+.selected{
+  color: red;
+}

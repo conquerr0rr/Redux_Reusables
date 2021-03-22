@@ -36,12 +36,14 @@ const Layout = ({ children }) => {
                             </li>
                             <li>
                                 <img alt="contact" src={contactIcon} />
-                                <p>Contact</p>
+                                <p>About Us</p>
                             </li>
+                            <Link to="/login">
                             <li>
                                 <img alt="user" src={userIcon} />
-                                <p>Account</p>
+                                <p>Login</p>
                             </li>
+                            </Link>
                             <Link to="/cart">
                                 <li>
                                     <img alt="Cart" src={basketIcon} />
@@ -115,7 +117,6 @@ const Layout = ({ children }) => {
                     <ul className="ft-legal-list">
                         <li>Terms &amp; Conditions</li>
                         <li>Privacy Policy</li>
-                        <li>&copy; 2019 Copyright Nowrap Inc.</li>
                     </ul>
                 </section>
             </footer>

@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import './Home.scss'
 import sofaImg from '../../assets/images/5-sofa-png-image-thumb.png';
+import BedImg from '../../assets/images/King-Size-Bed-PNG.png';
+import DiningImg from '../../assets/images/Dining-Table-PNG-Image.png';
+// import sofaImg from '../../assets/images/5-sofa-png-image-thumb.png';
+
 import { useDispatch, useSelector } from 'react-redux'
 import { readData } from '../../actions/Data';
 
@@ -35,12 +39,12 @@ const Home = () => {
                         <span>Sofas & Armchairs</span>
                         <img alt="sofa" src={sofaImg} />
                     </div> */}
-                    {items.map((items)=>(
+                    {items.map((items) => (
                         <div className="box" key={items._id}>
                             <span >{items.firstname} {items.lastname}</span>
                             <img alt="sofa" src={sofaImg} />
                         </div>
-                        ))
+                    ))
                     }
 
                     <div className="box">
@@ -78,7 +82,29 @@ const Home = () => {
                 <h1>Clearance Deals</h1>
                 <p>Upto 50% off</p>
 
-
+                <div className="deals-row">
+                    <div className="deal-box">
+                        <div className="img-container">
+                        <img alt="" src={sofaImg} />
+                        </div>
+                        <h3>Dining Tables</h3>
+                        <button>Shop Now</button>
+                    </div>
+                    <div className="deal-box">
+                        <div className="img-container">
+                        <img alt="" src={BedImg} />
+                        </div>
+                        <h3>Queen Bed</h3>
+                        <button>Shop Now</button>
+                    </div>
+                    <div className="deal-box">
+                        <div className="img-container">
+                        <img alt="" src={DiningImg} />
+                        </div>
+                        <h3>Dining Tables</h3>
+                        <button>Shop Now</button>
+                    </div>
+                </div>
             </section>
         </main>
     );
