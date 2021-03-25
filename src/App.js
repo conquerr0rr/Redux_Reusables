@@ -5,6 +5,7 @@ import Layout from '../src/components/Layout/Layout.jsx'
 import Admin from "../src/screens/Admin/Admin.jsx";
 import Cart from '../src/screens/Cart/Cart.jsx';
 import Login from '../src/screens/Login/Login.jsx';
+import Register from '../src/screens/Register/Register.jsx';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
         </Switch>
       </Layout>
     </Router>

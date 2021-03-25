@@ -1,0 +1,76 @@
+.parent-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url('../../assets/images/vincent-guth-qNAgTdop3E0-unsplash.jpg');
+    background-size: cover;
+    background-position: bottom;
+    .login-container{
+        display: flex;
+        justify-content: center;
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 50vh;
+            margin-top: 10%;
+            background-color: #D8E8F2;
+            h2{
+                text-align: center;
+                margin-top: 25px;
+                margin-bottom: 35px;
+                display: block;
+            }
+            .form-data{
+                margin-left: 10%;
+                font-size: 14px;
+                font-weight: 500;
+                .form-field{
+                    label{
+                        color: darkslategray;
+                    }
+                    input{
+                        display: block;
+                        margin-bottom: 25px;
+                        margin-top: 10px;
+                        width: 85%;
+                        background-color: transparent;
+                        border: none;
+                        border-bottom: 1px solid rgba(47, 79, 79, 0.616);
+                    }
+                }
+                span{
+                    color: grey;
+                    font-size: 12px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    // font-weight: 600;
+                }
+                button{
+                    display: block;
+                    cursor: pointer;
+                    margin-top: 25px;
+                    width: 85%;
+                    height: 35px;
+                    background-color: darkslategray;
+                    color: white;
+                    border:none;
+                    font-weight: 500;
+                    border-radius: 5px;
+                }
+                h5{
+                    margin-top: 20px;
+                    color: grey;
+                    font-weight: 600;
+                    .link{
+                        color:darkslategray;
+                        padding-left: 5px;
+                    }
+                }
+            }
+        
+        
+        }
+    }
+}
