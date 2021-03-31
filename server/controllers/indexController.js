@@ -21,7 +21,7 @@ exports.create = async (req, res) => {
 // READ
 exports.read = async (req, res) => {
     try {
-        let allData = await Notes.find();
+        let allData = await Notes.find().exec();
         console.log(allData);
         res.json(allData);
     } catch (error) {

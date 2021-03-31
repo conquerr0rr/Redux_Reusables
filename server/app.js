@@ -1,17 +1,16 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
-
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
 // Connect MongoDB at default port 27017.
-mongoose.connect('mongodb://localhost:27017/AnotherDB', {
+mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true 

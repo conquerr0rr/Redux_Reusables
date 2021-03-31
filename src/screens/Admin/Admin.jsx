@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './Admin.scss'
+import  './Admin.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { readData, createData,deleteData } from '../../actions/Data'
 
@@ -23,7 +23,7 @@ const Admin = () => {
   const data = useSelector((state) => state.Data);
 
   return (
-    <div className="parent-container">
+    <div className="parentContainer">
       <table id="customers">
         <thead>
           <tr>
