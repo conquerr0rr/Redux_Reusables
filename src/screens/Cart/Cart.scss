@@ -37,7 +37,7 @@
             height: 20vh;
             margin-bottom: 3%;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             // justify-content: center;
             align-items: center;
             .item-number{
@@ -54,11 +54,12 @@
                 }
             }
             .item-heading{
-                width: 60%;
+                width: 40%;
+                height: 100px;
                 display: flex;
+                align-items: center;
                 padding-left: 2%;
                 // justify-content: center;
-                // background-color: red;
                 font-weight: 300;
             }
             .item-quantity{
@@ -78,6 +79,14 @@
                     font-weight: 300;
                     font-size: 16px;
                 }
+            }
+            .item-pricing{
+                text-align: center;
+                width: 20%;
+                h4{
+                    font-weight: 300;
+                }
+                // background-color: red;
             }
         }
         .checkout-button{

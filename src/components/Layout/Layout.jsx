@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
                         <button>
                             <img alt="Search" src={searchIcon} />
                         </button>
-                        <input type="text" placeholder="Search for Products and Inspiration" />
+                        <input type="text" placeholder="Search for products and inspiration" />
 
                     </div>
 
@@ -120,7 +120,7 @@ const Layout = ({ children }) => {
                     </ul>
                 </section>
             </footer>
-        </>
+            </>
     )
 }
 
