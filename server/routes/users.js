@@ -14,10 +14,7 @@ router.get('/', function (req, res, next) {
 router.post('/register', async (req, res) => {
   try {
     let existedEmail = await User.findOne({ email: req.body.email })
-    if (existedEmail) {
-      res.json("Another user with the same email already registed. Try another email.")
-    }
-    else {
+    if (!existedEmail) {
       let hashedPassword = await EncryptPassword(req.body.password);
       let IsRegistered = await new User({
         email: req.body.email,
@@ -26,10 +23,19 @@ router.post('/register', async (req, res) => {
         password: hashedPassword
       }).save();
       console.log(IsRegistered);
-      res.json("user registered successfully");
+      res.status(200).json({
+        'success': 'true',
+        'message': "user registered successfully"
+      });
     }
-
+    else{
+      res.status(400).json({
+        'success': 'false',
+        'message': "Another user with the same email already registed. Try another email."
+      });
+    }
   } catch (error) {
+
     res.json(error);
   }
 });
@@ -40,7 +46,7 @@ router.post('/login', async (req, res) => {
     if (userAlreadyExist) {
       let passwordCheck = await bcrypt.compare(req.body.password, userAlreadyExist.password)
       if (passwordCheck === true) {
-        let token =  generateToken(userAlreadyExist._id);
+        let token = generateToken(userAlreadyExist._id);
         res.json({ token: token });
       }
     }

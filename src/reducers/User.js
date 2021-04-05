@@ -4,7 +4,7 @@ const User = (state = [], action) => {
         case REGISTER_SUCCESS:
             return [...state, action.payload];
         case REGISTER_FAIL:
-            return state;
+            return action.payload;
         default:
             return state;
     }

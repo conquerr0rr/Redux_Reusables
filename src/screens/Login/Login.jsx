@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Login.scss';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const handleLogin = () => {
+        localStorage.setItem('token', 'abcd');
+        let variable = localStorage.getItem('token');
+        console.log(variable);
+        sessionStorage.setItem('token', 'abcd');
+        document.cookie = "sample text";
+    };
+    useEffect(() => {
+        handleLogin();
+    }, []);
     return (
         <div className="parent-container">
             <div className="login-container">
@@ -11,7 +21,7 @@ const Login = () => {
                     <div className="form-data">
                         <div className="form-field">
                             <label htmlFor="">Username</label>
-                            <input type="username" required/>
+                            <input type="username" required />
                         </div>
                         <div className="form-field">
                             <label htmlFor="">Password</label>

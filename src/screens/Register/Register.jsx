@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Register.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { register } from '../../actions/User';
-
-
-
+import { newRegister } from '../../actions/User';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
@@ -18,15 +17,39 @@ const Register = () => {
     });
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(register(FormData))
-        console.log(FormData)
+        dispatch(newRegister(FormData));
+        console.log(FormData);
     }
 
-      
+    const toggleButton = () => {
+        toast.success('🦄 Wow so easy!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
+
+
 
     return (
         <div className="parent-container">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className="register-container">
+
                 <form onSubmit={handleSubmit}>
                     <h2>Register</h2>
                     <div className="form-row">
