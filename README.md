@@ -22,3 +22,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 * CRUD FUNCTIONALITY
 * REACT REDUX
+* JWT BASED AUTHENTICATION
