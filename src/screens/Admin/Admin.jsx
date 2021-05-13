@@ -1,51 +1,73 @@
 import React, { useEffect, useState } from 'react'
-import  './Admin.scss'
+import './Admin.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { readData, createData,deleteData } from '../../actions/Data'
+// import { readData, createData, deleteData } from '../../actions/Data'
 
-const Admin = () => {
+import { getAll, getByCategory, getOneItem, AddSingle } from '../../actions/Item';
+
+import Loader from '../../components/Loader/Loader';
+
+const Admin = ({ props }) => {
   const [Form, setForm] = useState({
-    firstname: '',
-    lastname: '',
-    data: '',
-    number: ''
+    title: '',
+    price: '',
+    description: '',
+    category: '',
+    image: ''
   });
+
+
+
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createData(Form))
+    console.log(Form);
+    // dispatch(AddSingle(Form))
   }
 
   useEffect(() => {
-    dispatch(readData())
+    dispatch(getAll())
   }, [dispatch]);
-  const data = useSelector((state) => state.Data);
+
+  const Items = useSelector((state) => state.itemReducer);
 
   return (
     <div className="parentContainer">
+
+      {
+        Items.loader === true ?
+          <Loader />
+          :
+          null
+      }
+
       <table id="customers">
         <thead>
           <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Number</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Image</th>
             <th colSpan="2">Manage</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((data) => (
-            <tr key={data._id}>
-              <td>{data._id}</td>
-              <td>{data.firstname}</td>
-              <td>{data.lastname}</td>
-              <td>{data.number}</td>
+          {Items.Items.data && Items.Items.data.map((item) => (
+            <tr key={item._id}>
+              <td>{item._id}</td>
+              <td>{item.title}</td>
+              <td>{item.price}</td>
+              <td className="desc">{item.description}</td>
+              <td>{item.category}</td>
+              <td><img src={item.image} alt="" /></td>
               <td>
                 <button className="update-button" >Update</button>
               </td>
               <td>
-                <button className="delete-button" onClick={()=>{dispatch(deleteData(data._id))}}>Delete</button>
+                {/* <button className="delete-button" onClick={() => { dispatch(deleteData(data._id)) }}>Delete</button> */}
               </td>
             </tr>
           ))
@@ -58,29 +80,41 @@ const Admin = () => {
           <p>Please fill in this form to create a data</p>
           <hr />
 
-          <label><b>First Name</b></label>
+          <label><b>Title</b></label>
           <input type="text" onChange={(e) => setForm({
             ...Form,
-            firstname: e.target.value
-          })} placeholder="" name="firstname" required />
+            title: e.target.value
+          })} placeholder="" name="title" required />
 
-          <label><b>Last Name</b></label>
-          <input type="text" placeholder="" name="lastname" required
+          <label><b>Price</b></label>
+          <input type="text" placeholder="" name="price" required
             onChange={(e) => setForm({
               ...Form,
-              lastname: e.target.value
+              price: e.target.value
             })} />
-          <label><b>Number</b></label>
-          <input type="number" placeholder="" name="number" required
-            onChange={(e) => setForm({
-              ...Form,
-              number: e.target.value
-            })} />
-          <label><b>Data</b></label>
+          <label><b>Category </b></label>
+          <select name="category" id="">
+            {Items.Items.data &&
+              Items.Items.data.map((item) => (
+                <option onChange={(e) => setForm({
+                  ...Form,
+                  category: e.target.value
+                })} value={item.category}>{item.category}</option>
+
+              ))
+            }
+            {/* <option value="Living Room">Living Room</option>
+            <option value="Bedroom">Bedroom</option>
+            <option value="Kitchen & Dining">Kitchen & Dining</option> */}
+          </select>
+          <br />
+          <br />
+          <label><b>Description</b></label>
+
           <input type="text" placeholder="" name="data" required
             onChange={(e) => setForm({
               ...Form,
-              data: e.target.value
+              description: e.target.value
             })} />
 
 

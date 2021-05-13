@@ -2,7 +2,10 @@ import { READ_DATA, CREATE_DATA, UPDATE_DATA, DELETE_DATA} from  '../constants/c
 const Data = (state = [], action) => {
     switch (action.type) {
         case CREATE_DATA:
-            return [...state, action.payload];
+            return [
+                ...state, 
+                action.payload
+            ];
         case READ_DATA:
             return action.payload;
         case UPDATE_DATA:

@@ -1,31 +1,59 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import './Login.scss';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { newLogin } from '../../actions/User';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const handleLogin = () => {
-        localStorage.setItem('token', 'abcd');
-        let variable = localStorage.getItem('token');
-        console.log(variable);
-        sessionStorage.setItem('token', 'abcd');
-        document.cookie = "sample text";
-    };
-    useEffect(() => {
-        handleLogin();
-    }, []);
+    const dispatch = useDispatch();
+    const [loginDetails, setloginDetails] = useState({
+        email: '',
+        password: ''
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(newLogin(loginDetails));
+    }
+
     return (
         <div className="parent-container">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className="login-container">
-                <form>
-                    <h2>Login Form</h2>
+                <form onSubmit={handleSubmit}>
+                    <h2>Login</h2>
                     <div className="form-data">
                         <div className="form-field">
-                            <label htmlFor="">Username</label>
-                            <input type="username" required />
+                            <label htmlFor="">Email</label>
+                            <input onChange={
+                                (e) => {
+                                    setloginDetails({
+                                        ...loginDetails,
+                                        email: e.target.value
+                                    })
+                                }} type="email" required />
                         </div>
                         <div className="form-field">
                             <label htmlFor="">Password</label>
-                            <input type="password" required />
+                            <input onChange={
+                                (e) => {
+                                    setloginDetails({
+                                        ...loginDetails,
+                                        password: e.target.value
+                                    })
+                                }} type="password" required />
                         </div>
                         <span>Forgot Password?</span>
                         <button>Login</button>
@@ -42,4 +70,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;

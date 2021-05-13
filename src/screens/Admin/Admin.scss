@@ -10,6 +10,7 @@
   #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
+    font-size: 12px;
   }
   
   #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -68,7 +69,7 @@
     background-color: #ddd;
     outline: none;
   }
-  
+
   
   hr {
     border: 1px solid #f1f1f1;
@@ -102,3 +103,9 @@
   }
 }
 
+td{
+  width: 10%;
+  img{
+    width: 100%;
+  }
+}

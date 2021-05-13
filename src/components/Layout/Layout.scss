@@ -119,6 +119,30 @@ header ul li {
     padding-bottom: 2px;
 }
 
+.header-category-expand{
+    // display: block;
+    position: absolute;
+    z-index: 300;
+    background-color: rgba(255, 255, 255, 0.789);
+    width: 400px;
+    top: 100%;
+   margin-bottom: 0;
+   transition: 0.3s ease;
+   
+    ul{
+        width: 30px;
+        li{
+            font-weight: 500;
+            margin-bottom: 0;
+            padding-bottom: 5px;
+            &:hover{
+                border: none;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+
 
 // FOOTER STARTS HERE
 

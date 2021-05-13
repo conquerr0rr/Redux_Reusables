@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Layout.scss'
 import { Link } from 'react-router-dom';
 
@@ -10,6 +10,10 @@ import basketIcon from '../../assets/icons/shopping_basket-24px.svg'
 import searchIcon from '../../assets/icons/search-24px.svg'
 
 const Layout = ({ children }) => {
+    const [ShowLiving, setLiving] = useState(false);
+    const [ShowBedroom, setBedroom] = useState(false);
+    const [ShowKitchen, setKitchen] = useState(false);
+
     return (
         <>
             <header>
@@ -30,19 +34,19 @@ const Layout = ({ children }) => {
 
                     <div className="navitems">
                         <ul>
-                            <li>
+                            {/* <li>
                                 <img alt="Navigation" src={navigationIcon} />
                                 <p>Showroom</p>
                             </li>
                             <li>
                                 <img alt="contact" src={contactIcon} />
                                 <p>About Us</p>
-                            </li>
+                            </li> */}
                             <Link to="/login">
-                            <li>
-                                <img alt="user" src={userIcon} />
-                                <p>Login</p>
-                            </li>
+                                <li>
+                                    <img alt="user" src={userIcon} />
+                                    <p>Login</p>
+                                </li>
                             </Link>
                             <Link to="/cart">
                                 <li>
@@ -56,12 +60,63 @@ const Layout = ({ children }) => {
 
                 <div className="headerbottom">
                     <ul>
-                        <li>Living Room</li>
-                        <li>Bedroom</li>
-                        <li>Kitchen & Dining</li>
+                        {/* WILL ONLY BE SHOWN WHEN MOUSE IS HOVERED ON HEADING */}
+                        <li onMouseEnter={() => { setLiving(true)
+                         }}
+                         onMouseLeave ={()=>{ setLiving(false)}}
+                        >Living Room</li>
+                        <li onMouseEnter={() => { setBedroom(true) }}>Bedroom</li>
+                        <li onMouseEnter={() => { setKitchen(true) }}>Kitchen & Dining</li>
                     </ul>
+                    <div
+                        onMouseLeave={() => {
+                            setKitchen(false)
+                           
+                            setBedroom(false)
+                        }}
+                        className="header-category-expand">
+                        <ul>
+                            {
+                                ShowLiving ?
+                                    <>
+                                        <li>Sofa</li>
+                                        <li>Chair</li>
+                                        <li>Table</li>
+                                        <li>Lamps</li>
+                                    </>
+                                    :
+                                    <></>
+                            }
+                            {
+                                ShowBedroom ?
+                                    <>
+                                        <li>bed</li>
+                                        <li>Chair</li>
+                                        <li>Table</li>
+                                        <li>Lamps</li>
+                                    </>
+                                    :
+                                    <></>
+                            }
+                            {
+                                ShowKitchen ?
+                                    <>
+                                        <li>kitchen</li>
+                                        <li>Chair</li>
+                                        <li>Table</li>
+                                        <li>Lamps</li>
+                                    </>
+                                    :
+                                    <></>
+
+                            }
+                        </ul>
+                    </div>
                 </div>
+
+
             </header>
+
             {children}
             <footer>
                 <section className="ft-main">
@@ -120,7 +175,7 @@ const Layout = ({ children }) => {
                     </ul>
                 </section>
             </footer>
-            </>
+        </>
     )
 }
 

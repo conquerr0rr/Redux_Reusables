@@ -6,6 +6,7 @@ import Admin from "../src/screens/Admin/Admin.jsx";
 import Cart from '../src/screens/Cart/Cart.jsx';
 import Login from '../src/screens/Login/Login.jsx';
 import Register from '../src/screens/Register/Register.jsx';
+import Loader from '../src/components/Loader/Loader.jsx';
 
 function App() {
   return (
