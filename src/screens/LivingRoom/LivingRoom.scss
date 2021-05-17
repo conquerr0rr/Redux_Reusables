@@ -1,0 +1,27 @@
+.page-heading{
+    text-align: center;
+    margin-top: 50px;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.living-container{
+    padding-top: 50px;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    #sidebar{
+        width: 25%;
+        // height: 100px;
+        background-color: white;
+        box-shadow: -1px 6px 10px 1px rgba(0, 0, 0, 0.108);
+    }
+    #main{
+        width: 70%;
+        // background-color: orange;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

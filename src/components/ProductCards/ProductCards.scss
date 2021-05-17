@@ -1,0 +1,60 @@
+#General-Card{
+    // height: 400px;
+    width: 270px;
+    background-color: rgba(228, 224, 224, 0.285);
+    border: 1px solid rgba(128, 128, 128, 0.068);
+    padding: 25px;
+    display: flex;
+    // box-shadow: -1px 6px 10px 0px rgba(0, 0, 0, 0.108);
+    flex-direction: column;
+    // border: 0.5px solid rgba(0, 0, 0, 0.11);
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 35px;
+    .img-container{
+        height: 170px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img{
+            background-size: contain;
+            width: 100%;
+        }
+    }
+    .inner-container{
+        width: 100%;
+        text-align: center;
+        .title{
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+        }
+        .price{
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .add-to-cart{
+            margin-top: 50px;
+            width: 65%;
+            height: 35px;
+            border: none;
+            // text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 1px solid darkslategrey;
+            border-radius: 5px;
+            background-color: transparent;
+            color: darkslategrey;
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
+         
+        }
+        .add-to-cart:hover{
+            background-color: darkslategrey;
+            color: white;
+        }
+    }
+}

@@ -25,23 +25,24 @@ const Layout = ({ children }) => {
                     </Link>
 
                     <div className="searchbar">
+                       
+                        <input type="text" placeholder="Search for products and inspiration" />
                         <button>
                             <img alt="Search" src={searchIcon} />
                         </button>
-                        <input type="text" placeholder="Search for products and inspiration" />
 
                     </div>
 
                     <div className="navitems">
                         <ul>
-                            {/* <li>
+                            <li>
                                 <img alt="Navigation" src={navigationIcon} />
                                 <p>Showroom</p>
                             </li>
                             <li>
                                 <img alt="contact" src={contactIcon} />
                                 <p>About Us</p>
-                            </li> */}
+                            </li>
                             <Link to="/login">
                                 <li>
                                     <img alt="user" src={userIcon} />
@@ -61,57 +62,11 @@ const Layout = ({ children }) => {
                 <div className="headerbottom">
                     <ul>
                         {/* WILL ONLY BE SHOWN WHEN MOUSE IS HOVERED ON HEADING */}
-                        <li onMouseEnter={() => { setLiving(true)
-                         }}
-                         onMouseLeave ={()=>{ setLiving(false)}}
-                        >Living Room</li>
-                        <li onMouseEnter={() => { setBedroom(true) }}>Bedroom</li>
-                        <li onMouseEnter={() => { setKitchen(true) }}>Kitchen & Dining</li>
+                        <li>Living Room</li>
+                        <li>Bedroom</li>
+                        <li>Kitchen & Dining</li>
                     </ul>
-                    <div
-                        onMouseLeave={() => {
-                            setKitchen(false)
-                           
-                            setBedroom(false)
-                        }}
-                        className="header-category-expand">
-                        <ul>
-                            {
-                                ShowLiving ?
-                                    <>
-                                        <li>Sofa</li>
-                                        <li>Chair</li>
-                                        <li>Table</li>
-                                        <li>Lamps</li>
-                                    </>
-                                    :
-                                    <></>
-                            }
-                            {
-                                ShowBedroom ?
-                                    <>
-                                        <li>bed</li>
-                                        <li>Chair</li>
-                                        <li>Table</li>
-                                        <li>Lamps</li>
-                                    </>
-                                    :
-                                    <></>
-                            }
-                            {
-                                ShowKitchen ?
-                                    <>
-                                        <li>kitchen</li>
-                                        <li>Chair</li>
-                                        <li>Table</li>
-                                        <li>Lamps</li>
-                                    </>
-                                    :
-                                    <></>
-
-                            }
-                        </ul>
-                    </div>
+       
                 </div>
 
 

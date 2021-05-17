@@ -1,9 +1,7 @@
 header{
- background-color: #D8E8F2;
+ background-color: white;
 position: relative;
-box-shadow: 1px 3px 5px 0px rgba(187,172,172,0.7);
--webkit-box-shadow: 1px 3px 5px 0px rgba(187,172,172,0.7);
--moz-box-shadow: 1px 3px 5px 0px rgba(187,172,172,0.7);
+box-shadow: -1px 2px 11px 0px rgba(0, 0, 0, 0.108);
 }
 .headertop {
     display: inline-block;
@@ -32,6 +30,7 @@ box-shadow: 1px 3px 5px 0px rgba(187,172,172,0.7);
 
 .searchbar {
     margin-left: 24%;
+
 }
 
 .searchbar button {
@@ -40,13 +39,14 @@ box-shadow: 1px 3px 5px 0px rgba(187,172,172,0.7);
 }
 
 .searchbar input {
-    height: 1.5rem;
+    height: 2.5rem;
     width: 25vw;
     border-color: transparent;
     /* border-bottom-color: darkslategray; */
     background: transparent;
     outline: none;
 }
+
 
 .searchbar input::placeholder {
     color: grey;
@@ -55,19 +55,28 @@ box-shadow: 1px 3px 5px 0px rgba(187,172,172,0.7);
 
 .searchbar input::-webkit-input-placeholder {
     font-family: 'Raleway';
-    font-size: 16px;
+    font-size: 14px;
     // color: rgba(47, 79, 79, 0.808);
     font-weight: 500;
     color: rgba(47, 79, 79, 0.555);
 }
 
 .searchbar {
-    border-bottom: 0.3px solid darkslategray;
+    background-color: rgba(228, 224, 224, 0.285);
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border:1px solid rgba(128, 128, 128, 0.068)
+}
+
+.searchbar:hover{
+    border: 1px solid darkslategrey;
 }
 
 .searchbar button {
     border: transparent;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .navitems {
@@ -90,7 +99,7 @@ header ul li {
     margin-right: 1.2rem;
     color: darkslategray;
     font-size: 0.9rem;
-    font-size: 14px;
+    font-size: 12px;
     color: rgba(47, 79, 79, 0.808);
     font-weight: 600;
     /* letter-spacing: 1px; */
@@ -101,6 +110,7 @@ header ul li {
     width: 100%;
     display: flex;
     justify-content: center;
+    border-top: 0.5px solid rgba(128, 128, 128, 0.211);
 }
 
 .headerbottom ul li {
@@ -110,7 +120,7 @@ header ul li {
     cursor: pointer;
     color: rgba(47, 79, 79, 0.644);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .headerbottom ul li:hover {
@@ -160,7 +170,7 @@ ul {
 }
 
 footer {
-    background-color: #C2D2DB;
+    background-color: #f3f5f7;
     color: darkslategray;
     line-height: 1.5;
 }

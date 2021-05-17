@@ -18,12 +18,19 @@ const Admin = ({ props }) => {
 
 
 
+
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(Form);
-    // dispatch(AddSingle(Form))
+    // console.log(newForm);
+    let newForm = new FormData();
+    newForm.append('image',Form.image);
+    newForm.append('title',Form.title);
+    newForm.append('price',Form.price);
+    newForm.append('description',Form.description);
+    newForm.append('category',Form.category);
+    dispatch(AddSingle(newForm));
   }
 
   useEffect(() => {
@@ -62,7 +69,7 @@ const Admin = ({ props }) => {
               <td>{item.price}</td>
               <td className="desc">{item.description}</td>
               <td>{item.category}</td>
-              <td><img src={item.image} alt="" /></td>
+              <td><img src={`http://localhost:9000/uploads/${item.image}`} alt="" /></td>
               <td>
                 <button className="update-button" >Update</button>
               </td>
@@ -74,7 +81,7 @@ const Admin = ({ props }) => {
           }
         </tbody>
       </table>
-      <form id="form-container" onSubmit={handleSubmit}>
+      <form id="form-container" onSubmit={handleSubmit} >
         <div className="container">
           <h1>Add New Data</h1>
           <p>Please fill in this form to create a data</p>
@@ -92,26 +99,42 @@ const Admin = ({ props }) => {
               ...Form,
               price: e.target.value
             })} />
+
+
           <label><b>Category </b></label>
-          <select name="category" id="">
+          <select name="category"
+            onChange={(e) => setForm({
+              ...Form,
+              category: e.target.value
+            })}
+            id="">
+               <option>Select a Category</option>
             {Items.Items.data &&
               Items.Items.data.map((item) => (
-                <option onChange={(e) => setForm({
-                  ...Form,
-                  category: e.target.value
-                })} value={item.category}>{item.category}</option>
+                <option key={item._id}>{item.category}</option>
 
               ))
             }
-            {/* <option value="Living Room">Living Room</option>
-            <option value="Bedroom">Bedroom</option>
-            <option value="Kitchen & Dining">Kitchen & Dining</option> */}
+
           </select>
+
+
           <br />
           <br />
+
+
+          <input type="file" name="image" onChange={(e) => setForm({
+              ...Form,
+              image: e.target.files[0]
+              // image: URL.createObjectURL(e.target.files[0])
+            })} />
+          <br />
+          <br />
+
+          
           <label><b>Description</b></label>
 
-          <input type="text" placeholder="" name="data" required
+          <input type="text" placeholder="" name="category" required
             onChange={(e) => setForm({
               ...Form,
               description: e.target.value
