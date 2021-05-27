@@ -8,6 +8,8 @@ import Login from '../src/screens/Login/Login.jsx';
 import Register from '../src/screens/Register/Register.jsx';
 import Loader from '../src/components/Loader/Loader.jsx';
 import LivingRoom from '../src/screens/LivingRoom/LivingRoom.jsx';
+import Kitchen from '../src/screens/Kitchen/Kitchen.jsx'
+import Bedroom from '../src/screens/Bedroom/Bedroom.jsx'
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/livingroom" component={LivingRoom} />
+          <Route exact path="/bedroom" component={Bedroom} />
+          <Route exact path="/kitchen" component={Kitchen} />
         </Switch>
       </Layout>
     </Router>

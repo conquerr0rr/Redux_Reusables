@@ -74,3 +74,11 @@ exports.verify = async (req,res) =>{
     }
 }
 
+
+exports.logout = async (req,res) =>{
+  try {
+    
+  } catch (error) {
+      console.log(error);
+  }
+}

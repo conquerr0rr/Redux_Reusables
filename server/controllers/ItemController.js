@@ -9,7 +9,7 @@ exports.AddItem = async (req, res) => {
             category: req.body.category,
             image: req.file.filename
         });
-        newItem.save((err) => {
+        newItem.save((err, data) => {
             if (err) {
                 res.status(400).json({
                     success: false,
@@ -19,7 +19,8 @@ exports.AddItem = async (req, res) => {
             else {
                 res.status(200).json({
                     success: true,
-                    message: "Item Successfully created."
+                    message: "Item Successfully created.",
+                    data: data
                 })
             }
         });
@@ -66,7 +67,7 @@ exports.getItemByCategory = async (req, res) => {
 
 exports.DeleteItem = async (req, res) => {
     try {
-        let DeletingItem = await Item.findByIdAndDelete({ _id: req.body.id });
+        let DeletingItem = await Item.findByIdAndDelete({ _id: req.params.id });
         if (DeletingItem) {
             res.status(200).json({
                 success: true,
@@ -105,4 +106,13 @@ exports.UpdateItem = async (req, res) => {
         console.log(error);
     }
 
+}
+
+exports.LimitItem = async (req, res) => {
+    try {
+        let sortedArray = await Item.find().limit(req.body.limit);
+        res.json(sortedArray);
+    } catch (error) {
+        console.log(error);
+    }
 }

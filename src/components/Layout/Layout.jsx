@@ -10,9 +10,6 @@ import basketIcon from '../../assets/icons/shopping_basket-24px.svg'
 import searchIcon from '../../assets/icons/search-24px.svg'
 
 const Layout = ({ children }) => {
-    const [ShowLiving, setLiving] = useState(false);
-    const [ShowBedroom, setBedroom] = useState(false);
-    const [ShowKitchen, setKitchen] = useState(false);
 
     return (
         <>
@@ -20,12 +17,16 @@ const Layout = ({ children }) => {
                 <div className="headertop">
                     <Link to="/">
                         <div className="logo">
-                            <span>Maynooth</span>
+                            <span>
+                               <span className="yellow-text">R</span>
+                               ena
+                              <span className="yellow-text">R</span>t
+                                </span>
                         </div>
                     </Link>
 
                     <div className="searchbar">
-                       
+
                         <input type="text" placeholder="Search for products and inspiration" />
                         <button>
                             <img alt="Search" src={searchIcon} />
@@ -62,11 +63,17 @@ const Layout = ({ children }) => {
                 <div className="headerbottom">
                     <ul>
                         {/* WILL ONLY BE SHOWN WHEN MOUSE IS HOVERED ON HEADING */}
-                        <li>Living Room</li>
-                        <li>Bedroom</li>
-                        <li>Kitchen & Dining</li>
+                        <Link to="/livingroom">
+                            <li>Living Room</li>
+                        </Link>
+                        <Link to="/bedroom">
+                            <li>Bedroom</li>
+                        </Link>
+                        <Link to="/kitchen">
+                            <li>Kitchen & Dining</li>
+                        </Link>
                     </ul>
-       
+
                 </div>
 
 

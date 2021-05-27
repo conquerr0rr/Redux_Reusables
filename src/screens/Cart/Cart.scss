@@ -12,7 +12,9 @@
         letter-spacing: 0px;
     }
     .empty-container{
-        background-color: #D8E8F2;
+        border:1px solid rgba(128, 128, 128, 0.068);
+        background-color: rgba(228, 224, 224, 0.285);
+        border-radius: 8px;
         width: 80%;
         height: 50vh;
         align-self: center;
@@ -32,7 +34,8 @@
         width: 80%;
         align-self: center;
         .cart-item{
-            border: 1px solid silver;
+              border:1px solid rgba(128, 128, 128, 0.068);
+            background-color: rgba(228, 224, 224, 0.285);
             border-radius: 10px;
             height: 20vh;
             margin-bottom: 3%;

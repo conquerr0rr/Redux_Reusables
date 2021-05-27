@@ -67,6 +67,7 @@ router.get('/getItemByCategory', ItemController.getItemByCategory);
 router.get('/getSingleItem', ItemController.getSingleItem);
 
 // LIMIT RESULTS
+router.get('/',ItemController.LimitItem);
 
 // SORT RESULT
 
@@ -74,7 +75,7 @@ router.get('/getSingleItem', ItemController.getSingleItem);
 router.post('/', upload.single('image'), ItemController.AddItem);
 
 // DELETE PRODUCT
-router.delete('/', ItemController.DeleteItem);
+router.delete('/:id', ItemController.DeleteItem);
 
 // UPDATE PRODUCT
 router.patch('/', ItemController.UpdateItem);

@@ -17,6 +17,21 @@ var userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    CartDetails: {
+        date: {
+            type: Date,
+            default: Date.now()
+        },
+        productsArray: [{
+            productId: {
+                type: String,
+            },
+            quantity: {
+                type: Number,
+                default: 0
+            }
+        }]
     }
 });
 

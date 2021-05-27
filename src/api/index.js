@@ -17,10 +17,10 @@ export const login = (loginDetails) => axios.post(url + 'users/login', loginDeta
 export const getAllItems = () => axios.get(url + 'items/getAllItems');
 export const getItemByCategory = (category) => axios.get(url + 'items/getItemByCategory', category);
 export const getSingleItem = (id) => axios.get(url + 'items/getSingleItem', id);
-export const AddItem = (Form) => axios.post(url + 'items/', Form,{
+export const AddItem = (Form) => axios.post(url + 'items/', Form, {
     headers: {
-        'Content-Type' : 'multipart/form-data'
+        'Content-Type': 'multipart/form-data'
     }
 });
-export const DeleteItem = (id) => axios.delete(url + 'items/', id);
+export const DeleteItem = (id) => axios.delete(url + `items/${id}`);
 export const UpdateItem = (Form) => axios.patch(url + 'items/', Form);

@@ -16,14 +16,14 @@ import {
 } from '../constants/constant';
 import * as api from '../api/index';
 
-export const ShowLoader = () => (dispatch)=>{
+export const ShowLoader = () => (dispatch) => {
     dispatch({
-        type:SHOW_LOADER,
+        type: SHOW_LOADER,
     })
 }
-export const HideLoader = () => (dispatch)=>{
+export const HideLoader = () => (dispatch) => {
     dispatch({
-        type:HIDE_LOADER,
+        type: HIDE_LOADER,
     })
 }
 
@@ -78,12 +78,13 @@ export const getOneItem = (id) => async (dispatch) => {
     }
 }
 
-export const AddSingle = (Form) => async (dispatch) =>{
+export const AddSingle = (Form) => async (dispatch) => {
     try {
         let res = await api.AddItem(Form);
+        console.log(res)
         dispatch({
-            type:CREATE_ITEM_SUCCESS,
-            payload: res
+            type: CREATE_ITEM_SUCCESS,
+            payload: res.data.data
         })
     } catch (error) {
         dispatch({
@@ -91,24 +92,26 @@ export const AddSingle = (Form) => async (dispatch) =>{
         });
     }
 }
-export const DeleteSingle = (id) => async (dispatch) =>{
+
+
+export const DeleteSingle = (id) => async (dispatch) => {
     try {
-        let res = await api.AddItem(id);
+         api.DeleteItem(id);
         dispatch({
-            type:DELETE_ITEM_SUCCESS,
-            payload: res
+            type: DELETE_ITEM_SUCCESS,
         })
+
     } catch (error) {
         dispatch({
             type: DELETE_ITEM_FAIL
         });
     }
 }
-export const UpdateSingle = (Form) => async (dispatch) =>{
+export const UpdateSingle = (Form) => async (dispatch) => {
     try {
         let res = await api.AddItem(Form);
         dispatch({
-            type:UPDATE_ITEM_SUCCESS,
+            type: UPDATE_ITEM_SUCCESS,
             payload: res
         })
     } catch (error) {

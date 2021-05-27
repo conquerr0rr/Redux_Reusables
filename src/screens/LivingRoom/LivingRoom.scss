@@ -17,11 +17,22 @@
         background-color: white;
         box-shadow: -1px 6px 10px 1px rgba(0, 0, 0, 0.108);
     }
+    // #main{
+    //     width: 70%;
+    //     display: flex;
+    //     justify-content: space-between;
+    //     background-color: red;
+    //     flex-wrap: wrap;
+    // }
     #main{
-        width: 70%;
-        // background-color: orange;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+            display: grid;
+            // background-color: red;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 20px 15px;
+            grid-template-areas:
+              ". . ."
+              ". . ."
+              ". . ."; 
     }
 }

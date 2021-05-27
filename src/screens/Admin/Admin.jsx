@@ -3,7 +3,7 @@ import './Admin.scss'
 import { useDispatch, useSelector } from 'react-redux'
 // import { readData, createData, deleteData } from '../../actions/Data'
 
-import { getAll, getByCategory, getOneItem, AddSingle } from '../../actions/Item';
+import { getAll, getByCategory, getOneItem, AddSingle, DeleteSingle } from '../../actions/Item';
 
 import Loader from '../../components/Loader/Loader';
 
@@ -22,32 +22,33 @@ const Admin = ({ props }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
+    dispatch(getAll())
     e.preventDefault();
     // console.log(newForm);
     let newForm = new FormData();
-    newForm.append('image',Form.image);
-    newForm.append('title',Form.title);
-    newForm.append('price',Form.price);
-    newForm.append('description',Form.description);
-    newForm.append('category',Form.category);
+    newForm.append('image', Form.image);
+    newForm.append('title', Form.title);
+    newForm.append('price', Form.price);
+    newForm.append('description', Form.description);
+    newForm.append('category', Form.category);
     dispatch(AddSingle(newForm));
   }
 
-  useEffect(() => {
+  const DeleteItem = (id) =>{
+    dispatch(DeleteSingle(id))
     dispatch(getAll())
+  }
+
+  useEffect(() => {
+    dispatch(getAll());
   }, [dispatch]);
 
   const Items = useSelector((state) => state.itemReducer);
+  
+  const DisplayItem = Items.Items.data;
 
   return (
     <div className="parentContainer">
-
-      {
-        Items.loader === true ?
-          <Loader />
-          :
-          null
-      }
 
       <table id="customers">
         <thead>
@@ -62,7 +63,9 @@ const Admin = ({ props }) => {
           </tr>
         </thead>
         <tbody>
-          {Items.Items.data && Items.Items.data.map((item) => (
+
+          
+          {DisplayItem && DisplayItem.map((item) => (
             <tr key={item._id}>
               <td>{item._id}</td>
               <td>{item.title}</td>
@@ -74,7 +77,7 @@ const Admin = ({ props }) => {
                 <button className="update-button" >Update</button>
               </td>
               <td>
-                {/* <button className="delete-button" onClick={() => { dispatch(deleteData(data._id)) }}>Delete</button> */}
+                <button className="delete-button" onClick={()=>{DeleteItem(item._id)}}>Delete</button>
               </td>
             </tr>
           ))
@@ -108,13 +111,11 @@ const Admin = ({ props }) => {
               category: e.target.value
             })}
             id="">
-               <option>Select a Category</option>
-            {Items.Items.data &&
-              Items.Items.data.map((item) => (
-                <option key={item._id}>{item.category}</option>
+            <option>Select a Category</option>
+            <option>Living</option>
+            <option>Bedroom</option>
+            <option>Kitchen</option>
 
-              ))
-            }
 
           </select>
 
@@ -124,14 +125,14 @@ const Admin = ({ props }) => {
 
 
           <input type="file" name="image" onChange={(e) => setForm({
-              ...Form,
-              image: e.target.files[0]
-              // image: URL.createObjectURL(e.target.files[0])
-            })} />
+            ...Form,
+            image: e.target.files[0]
+            // image: URL.createObjectURL(e.target.files[0])
+          })} />
           <br />
           <br />
 
-          
+
           <label><b>Description</b></label>
 
           <input type="text" placeholder="" name="category" required
@@ -141,7 +142,7 @@ const Admin = ({ props }) => {
             })} />
 
 
-          <button type="submit" className="registerbtn" >Register</button>
+          <button type="submit" className="registerbtn" >Add Item</button>
         </div>
 
       </form>

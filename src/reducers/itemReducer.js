@@ -31,11 +31,14 @@ const itemReducer = (state = initialState, action) => {
         case CREATE_ITEM_SUCCESS:
             return {
                 ...state,
-                Items: action.payload,
+                Items: [
+                    ...state.Items,
+                    action.payload
+                ],
                 loader: false
             }
         case DELETE_ITEM_SUCCESS:
-            return state.filter((item) => item._id !== action.payload);
+            return state;
 
         case GET_ALL_ITEMS_FAIL:
         case GET_SINGLE_ITEM_FAIL:
