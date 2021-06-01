@@ -3,11 +3,18 @@ import './Cart.scss';
 import sofaImg from '../../assets/images/5-sofa-png-image-thumb.png'
 import Bed from '../../assets/images/King-Size-Bed-PNG.png'
 import DiningTable from '../../assets/images/Dining-Table-PNG-Image.png'
+import { useDispatch, useSelector } from 'react-redux';
+
+
+
 
 const Cart = () => {
-    useEffect(() => {
+    // useEffect(() => {
 
-    }, []);
+    // }, []);
+
+    const CartData = useSelector(state => state);
+    console.log(CartData)
     return (
         <section id="shopping-container">
             <h1 className="main-heading">ORDER SUMMARY</h1>

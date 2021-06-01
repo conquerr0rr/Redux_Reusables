@@ -26,10 +26,11 @@ var userSchema = new mongoose.Schema({
         productsArray: [{
             productId: {
                 type: String,
+                default: 'null'
             },
             quantity: {
                 type: Number,
-                default: 0
+                default: -1
             }
         }]
     }

@@ -15,13 +15,18 @@ exports.getAllProducts = async (req, res) => {
 exports.addProductToCart = async (req, res) => {
     try {
         // console.log(req.params);
-        let existingUser = await User.findByIdAndUpdate({ _id: req.body.id, }, { productsArray: req.body.productsArray });
-        res.json(existingUser);
-
-    } catch (error) {
-        console.log(error);
-        res.status(400).json(error);
+        let userId = req.body.id;
+        let existingUser = await User.findByIdAndUpdate(
+            userId,
+            // $push pushes a new item into the exisitin
+            {  $push : {"CartDetails.productsArray" : req.body.productsArray}  }
+            );
+            res.json(existingUser);
     }
+ catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+}
 }
 
 

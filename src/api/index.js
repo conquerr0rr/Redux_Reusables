@@ -24,3 +24,8 @@ export const AddItem = (Form) => axios.post(url + 'items/', Form, {
 });
 export const DeleteItem = (id) => axios.delete(url + `items/${id}`);
 export const UpdateItem = (Form) => axios.patch(url + 'items/', Form);
+
+
+
+// CART FUNCTIONALITY
+export const addProductToCart = (CartDetails) => axios.patch(url + 'users/addProductToCart/', CartDetails);
