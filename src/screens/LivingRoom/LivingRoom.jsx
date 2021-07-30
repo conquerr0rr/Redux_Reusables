@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './LivingRoom.scss'
 import ProductCards from '../../components/ProductCards/ProductCards';
 import Sidebar from '../../components/Sidebar/Sidebar'
@@ -7,10 +7,10 @@ import { getAll } from '../../actions/Item';
 
 const LivingRoom = (props) => {
     const dispatch = useDispatch();
-
+    const [search, setsearch] = useState('');
 
     useEffect(() => {
-        dispatch(getAll())
+        dispatch(getAll());
     }, [dispatch])
 
 
@@ -26,11 +26,11 @@ const LivingRoom = (props) => {
                 </section>
                 <section id="main">
                     {Items && Items.map((item) => (
-                        <ProductCards 
-                        key={item._id}
-                        title={item.title}
-                        price={item.price}
-                        image={`http://localhost:9000/uploads/${item.image}`} />
+                        <ProductCards
+                            key={item._id}
+                            title={item.title}
+                            price={item.price}
+                            image={`http://localhost:9000/uploads/${item.image}`} />
                     ))
                     }
                 </section>

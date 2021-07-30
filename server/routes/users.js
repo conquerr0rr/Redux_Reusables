@@ -15,7 +15,7 @@ router.get('/logout',userController.logout);
 router.get('/verify', userController.verify)
 
 
-router.get('/getAllCartItems' , cartController.getAllProducts);
+router.get('/getAllCartItems/:id' , cartController.getAllProducts);
 router.patch('/addProductToCart' , cartController.addProductToCart);
 // router.patch('' , cartController.updateProduct);
 // router.delete('' , cartController.deleteProduct);

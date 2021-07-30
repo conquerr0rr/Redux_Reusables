@@ -43,3 +43,5 @@ export const UPDATE_ITEM_FAIL = 'UPDATE_ITEM_FAIL';
 // CART 
 export const ADD_CART_SUCCESS = 'ADD_CART_SUCCESS';
 export const ADD_CART_FAIL = 'ADD_CART_FAIL';
+export const GET_CART_SUCCESS = 'GET_CART_SUCCESS';
+export const GET_CART_FAIL = 'GET_CART_FAIL';

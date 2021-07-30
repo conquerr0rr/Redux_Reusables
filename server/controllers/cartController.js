@@ -4,7 +4,8 @@ var User = require('../models/User');
 
 exports.getAllProducts = async (req, res) => {
     try {
-        let products = await User.find();
+        let userId = req.params.id;
+        let products = await User.findById({ _id: userId });
         res.status(200).json(products);
     } catch (error) {
         console.log(error)
@@ -19,14 +20,16 @@ exports.addProductToCart = async (req, res) => {
         let existingUser = await User.findByIdAndUpdate(
             userId,
             // $push pushes a new item into the exisitin
-            {  $push : {"CartDetails.productsArray" : req.body.productsArray}  }
-            );
-            res.json(existingUser);
+            {
+                $push: { "CartDetails.productsArray": req.body.productsArray }
+            }
+        );
+        res.status(200).json({ message: "Product Added Successfully", success: true });
     }
- catch (error) {
-    console.log(error);
-    res.status(400).json(error);
-}
+    catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
 }
 
 

@@ -10,7 +10,7 @@ import basketIcon from '../../assets/icons/shopping_basket-24px.svg'
 import searchIcon from '../../assets/icons/search-24px.svg'
 
 const Layout = ({ children }) => {
-
+    const [search, setSearch] = useState('');
     return (
         <>
             <header>
@@ -18,16 +18,17 @@ const Layout = ({ children }) => {
                     <Link to="/">
                         <div className="logo">
                             <span>
-                               <span className="yellow-text">R</span>
-                               ena
-                              <span className="yellow-text">R</span>t
-                                </span>
+                                <span className="yellow-text">R</span>
+                                ena
+                                <span className="yellow-text">R</span>t
+                            </span>
                         </div>
                     </Link>
 
                     <div className="searchbar">
 
-                        <input type="text" placeholder="Search for products and inspiration" />
+                        <input type="text" placeholder="Search for products and inspiration" onChange={event => setSearch(event.target.value)} />
+
                         <button>
                             <img alt="Search" src={searchIcon} />
                         </button>

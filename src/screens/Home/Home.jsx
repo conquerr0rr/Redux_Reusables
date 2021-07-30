@@ -3,7 +3,11 @@ import './Home.scss'
 import sofaImg from '../../assets/images/5-sofa-png-image-thumb.png';
 import BedImg from '../../assets/images/King-Size-Bed-PNG.png';
 import DiningImg from '../../assets/images/Dining-Table-PNG-Image.png';
-// import sofaImg from '../../assets/images/5-sofa-png-image-thumb.png';
+import tableImg from '../../assets/images/table.png';
+import lampImg from '../../assets/images/lamp.png';
+import furnitureImg from '../../assets/images/furniture.png';
+import kitchenImg from '../../assets/images/kitchen.png';
+import diningImg from '../../assets/images/dining.png';
 
 import { useDispatch, useSelector } from 'react-redux'
 import { readData } from '../../actions/Data';
@@ -52,20 +56,24 @@ const Home = () => {
                         <img alt="sofa" src={sofaImg} />
                     </div>
                     <div className="box">
+                        <span>Table</span>
+                        <img alt="sofa" src={tableImg} />
+                    </div>
+                    <div className="box">
                         <span>Lighting</span>
-                        <img alt="sofa" src={sofaImg} />
+                        <img alt="sofa" src={lampImg} />
                     </div>
                     <div className="box">
                         <span>Soft Furnishings</span>
-                        <img alt="sofa" src={sofaImg} />
+                        <img alt="sofa" src={furnitureImg} />
                     </div>
                     <div className="box">
                         <span>Kitchen</span>
-                        <img alt="sofa" src={sofaImg} />
+                        <img alt="sofa" src={kitchenImg} />
                     </div>
                     <div className="box">
                         <span>Home Accesories</span>
-                        <img alt="sofa" src={sofaImg} />
+                        <img alt="sofa" src={diningImg} />
                     </div>
 
                 </div>

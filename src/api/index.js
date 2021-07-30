@@ -29,3 +29,6 @@ export const UpdateItem = (Form) => axios.patch(url + 'items/', Form);
 
 // CART FUNCTIONALITY
 export const addProductToCart = (CartDetails) => axios.patch(url + 'users/addProductToCart/', CartDetails);
+export const getCartItems = (CartDetails) => axios.get(url + 'users/getAllCartItems/', CartDetails);
+
+
